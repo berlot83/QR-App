@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<!-- Start Libraries -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald"
+	rel="stylesheet">
+<link rel="stylesheet" href="src/css/indexStylesheet.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+
+<script type="text/javascript" src="src/js/jquery-3.3.1.min.js"></script>
+
+<!-- Carousel libraries -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Must be after carousel libraries -->
+<script type="text/javascript" src="src/js/jquery-confirm.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
+<!-- Icons -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+
+
+<!-- End Libraries -->
+<title>Real State QR Manager</title>
+</head>
+
+<script type="text/javascript">
+	function play() {
+		$.alert({
+			title : 'Alert!',
+			content : 'Simple alert!',
+			confirm : function() {
+				$.alert('Confirmed!'); // shorthand.
+			}
+		});
+	}
+</script>
+
+<style>
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+	<!-- Start Body -->
+	<body style="background-color: grey; font-family: 'Francois One', sans-serif;">
+	<!-- Start nav bar -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- Links -->
+				<ul class="navbar-nav"
+					style="font-family: 'Francois One', sans-serif;">
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="index.html"><i class="fas fa-home"></i>
+								Home</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="services.html"><i class="fas fa-qrcode"></i>
+								Servicios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="pricing.html"><i
+								class="far fa-credit-card"></i> Precios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="mission.html">Misión</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="#">Contacto</a>
+						</h4></li>
+				</ul>
+
+			</div>
+		</div>
+		<button id="loginButton" type="button" class="btn btn-warning btn-lg"
+			onclick="login()">
+			<i class="fas fa-sign-in-alt"></i> Login
+		</button>
+		<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+		</script>
+	</nav>
+	<!-- End nav bar -->
+
+
+	<!-- Start carousel -->
+	<div id="demo" class="carousel slide" data-ride="carousel">
+
+		<!-- Indicators -->
+		<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+		</ul>
+		<!-- SlideShow -->
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="src/img/slide1.png" alt="slide 1">
+				<div class="carousel-caption">
+					<h3>QR-Propiedades</h3>
+					<p>Utilice tecnologías de vanguardia</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="src/img/slide2.png" alt="slide 2">
+				<div class="carousel-caption">
+					<h3>Sea más competitivo</h3>
+					<p>Sobresalga por sobre la competencia</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="src/img/slide3.png" alt="slide 3">
+				<div class="carousel-caption">
+					<h3>Ventas seguras siempre</h3>
+					<p>Venda más rápido con menos esfuerzo, ahorre palabras</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="src/img/slide5.png" alt="slide 4">
+				<div class="carousel-caption">
+					<h3>Sea más competitivo</h3>
+					<p>Sobresalga por sobre la competencia</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Left and right controls -->
+		<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span
+			class="carousel-control-prev-icon"></span>
+		</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
+	</div>
+	<!-- End carousel -->
+
+
+	<div id="bannerImage" class="row" class="container"
+		style="padding: 50px;">
+		<div class="col-md-5" style="background:LemonChiffon;">
+			<div style="margin: 3%;" class="text-justify">
+				<h4 class="display-4">Ventajas:</h4>
+				<dl>
+					<dt>
+						<h3 class="text-success">Maximize sus ventas</h3>
+					</dt>
+					<dd>- Permita a sus clientes el acceso a más datos sobre el
+						inmueble.</dd>
+					<dt>
+						<h3 class="text-success">Asegure sus negociaciones</h3>
+					</dt>
+					<dd>- Los potenciales clientes se comunicarán con usted con
+						información más certera, con una vista general más amplia sobre
+						las características de la propiedad.</dd>
+					<dt>
+						<h3 class=text-success>Brinde la información que usted desée</h3>
+					</dt>
+					<dd>- Brinde sólo aquella información que le parezca mejor a
+						sus negocios, en la palma de sus mano y la de sus potenciales
+						clientes.</dd>
+					<dt>
+						<h3 class="text-success">Actualice su negocio</h3>
+					</dt>
+					<dd>- Utilice tecnologías de la información de vanguardia,
+						utilizamos sistemas avanzados similares a los que usan bancos y
+						financieras.</dd>
+					<dt>
+						<h3 class="text-success">Carteles Avanzados</h3>
+					</dt>
+					<dd>- Proporcione a sus carteles un acceso directo a la
+						información del inmueble en cuestión y una vista avanzada adaptada
+						a los tiempos actuales.</dd>
+					<dt>
+						<h3 class="text-success">Complete e imprima</h3>
+					</dt>
+					<dd>- Los códigos QR pueden ser impresos en 5 tamaños
+						diferentes para ser adaptados a una hoja de papel, un folleto
+						hasta a un cartel.</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="col-md-7" style="background:LemonChiffon;">
+			<div style="margin: 3%;">
+				<img id="scanningAction" src="src/img/scanningAction.png"
+					class="img-fluid rounded" style="box-shadow: 0px 15px 15px;" />
+				<script type="text/javascript">
+					$("#scanningAction").click(function() {
+						$.alert({
+							type : "blue",
+							animation : 'rotateX',
+							closeAnimation : 'rotateX',
+							title : '<p class="text-justify">Permita a sus potenciales clientes obtener aún más información sobre el inmueble en cuestión</p>',
+							content : "<img src='src/img/cartelQr.png' style='box-shadow: 0px 15px 15px;'></img>",
+							confirm : function() {
+								$.alert('Confirmed!'); // shorthand.
+							}
+						});
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+
+	<div class="jumbotron jumbotron-fluid" style="text-align: center; background:LemonChiffon;">
+		<div class="container">
+			<h4 class="display-4">Actualice sus sistemas con QR App  <i class="fas fa-qrcode"></i></h4>
+			<button type="button" class="btn btn-success btn-lg" onclick="pricing()"
+				data-toggle="tooltip"
+				title="Comience ya mismo a utilizar tecnologías de vanguardia en su empresa...">
+				Comenzar <i class="fas fa-qrcode"></i>
+				<script>
+				function pricing(){
+					window.location.href="pricing.html";
+				}
+				</script>
+			</button>
+		</div>
+
+		<div class="container">
+			<span class="badge badge-primary" id="tecnologies">Tecnologías <i class="fas fa-laptop"></i></span>
+			<!-- Popup de tecnologies -->
+			<script type="text/javascript">
+				$("#tecnologies").click(function() {
+					$.alert({
+						type : "blue",
+						animation : 'zoom',
+						closeAnimation : 'scale',
+						title : 'Algunas de las Tecnologías que usamos:',
+						content : "<div class='float-left'><img src='src/img/javaLogo.png'></img></div><div><img src='src/img/tomcatLogo.png'></img></div><div></img><img src='src/img/oracleDbLogo.png'></img></div>",
+						confirm : function() {
+							$.alert('Confirmed!'); // shorthand.
+						}
+					});
+				});
+			</script>
+			<!-- Popup de tecnologies -->
+
+			<span class="badge badge-secondary" id="benefits">Beneficios</span>
+			<!-- Popup de Beneficios -->
+			<script type="text/javascript">
+				$("#benefits").click(function() {
+					$.alert({
+						type : "red",
+						animation : 'zoom',
+						closeAnimation : 'scale',
+						title : "<h3>Beneficios:</h3>",
+						content : "<dl><dt><p class='text-primary'>- Maximize sus ventas</p></dt><dt><p class='text-primary'>- Asegure sus negociaciones</p></dt><dt><p class='text-primary'>- Brinde la información que usted desée</p></dt><dt><p class='text-primary'>- Actualice su negocio con tecnologías de vanguardia</p></dt><dt><p class='text-primary'>- Carteles Avanzados</p></dt><dt><p class='text-primary'>- Complete imprima y ahorre muchas palabras.</p></dt></dl><img src='src/img/transparencyQr.png'></img>",
+						confirm : function() {
+							$.alert('Confirmed!'); // shorthand.
+						}
+					});
+				});
+			</script>
+			<!-- Popup de Beneficios -->
+
+			<span class="badge badge-success" id="success">Exito</span>
+			<!-- Popup de Exito -->
+			<script type="text/javascript">
+				$("#success").click(function() {
+					$.alert({
+						type : "green",
+						animation : 'zoom',
+						closeAnimation : 'scale',
+						title : "<h3>Nuestro objetivo: Su Éxito</h3>",
+						content : "<p>En poco tiempo logrará ser más conocido no solamente por sus propiedades sino por la innovación tecnológica que puede repercutir en una opinión pública favorable. Por nuestra parte seguiremos innovando para que junto a usted sigamos creciendo.</p>",
+						confirm : function() {
+							$.alert('Confirmed!'); // shorthand.
+						}
+					});
+				});
+			</script>
+			<!-- Popup de Exito -->
+
+			<span class="badge badge-danger">Futuro</span> <span
+				class="badge badge-warning">Competencia</span>
+		</div>
+	</div>
+
+	<!-- Start Footer -->
+	<div class="footer">
+		<footer class="footer-info">
+			Todos los derechos reservados para
+			<kbd>QR-Propiedades.com</kbd>
+			| Diseñado y mantenido por
+			<kbd>
+				<a href="http://molokotech.com">Molokotech Solutions</a>
+			</kbd>
+			.
+		</footer>
+	</div>
+</body>
+<!-- End Body -->
+</html>

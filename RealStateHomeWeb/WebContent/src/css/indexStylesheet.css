@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+.footer {
+   bottom: 0;
+   width: 100%;
+   margin-top: 0px;
+   height: 100%;
+   line-height: 60px;
+   background:	#1f1f1f;
+   font-weight: 700;
+   float: left;
+   padding-bottom: 10px;
+   padding-left:50px;
+   color: #808080;
+   text-align: left;
+   font-size: 18px;
+}
+

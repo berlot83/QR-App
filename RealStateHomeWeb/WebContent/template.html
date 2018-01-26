@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Start Libraries -->
+<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald" rel="stylesheet">
+<link rel="stylesheet" href="src/css/indexStylesheet.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+	<script type="text/javascript" src="src/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-confirm.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+	
+<!-- Icons -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+
+
+<!-- End Libraries -->
+<title>Basic template</title>
+</head>
+<body>
+
+
+<!-- Start nav bar -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- Links -->
+				<ul class="navbar-nav" style="font-family: 'Francois One', sans-serif;">
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="index.html">Home</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="#">Servicios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="pricing.html">Precios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link"  href="mission.html">Misión</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="#">Contacto</a>
+						</h4></li>
+				</ul>
+			</div>
+		</div>
+		<button id="loginButton" type="button" class="btn btn-warning btn-lg"
+			onclick="login()">Login</button>
+		<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+		</script>
+	</nav>
+	<!-- End nav bar -->
+
+
+<div id="content">
+<div id="about">
+<form action="">
+
+
+</form>
+</div>
+
+
+</div>
+
+			<!-- Start Footer -->
+			<div class="footer">
+				<footer class="footer-info">
+					Todos los derechos reservados para
+					<kbd>QR-Propiedades.com</kbd>
+					| Diseñado y mantenido por
+					<kbd>
+						<a href="http://molokotech.com">Molokotech Solutions</a>
+					</kbd>
+					.
+				</footer>
+			</div>
+</body>
+</html>

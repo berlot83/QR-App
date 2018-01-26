@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Start Libraries -->
+<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald"
+	rel="stylesheet">
+<link rel="stylesheet" href="src/css/indexStylesheet.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+	<script type="text/javascript" src="src/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-confirm.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+
+<!-- Icons -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+
+
+<!-- End Libraries -->
+<title>Basic template</title>
+</head>
+<body style="font-family: 'Francois One', sans-serif;">
+
+
+	<!-- Start nav bar -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- Links -->
+				<ul class="navbar-nav"
+					style="font-family: 'Francois One', sans-serif;">
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="index.html">Home</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="services.html">Servicios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="pricing.html">Precios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="mission.html">Misión</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="#">Contacto</a>
+						</h4></li>
+				</ul>
+			</div>
+		</div>
+		<button id="loginButton" type="button" class="btn btn-warning btn-lg"
+			onclick="login()">Login</button>
+		<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+		</script>
+	</nav>
+	<!-- End nav bar -->
+
+
+	<div id="content">
+
+		<div id="product" class="bg-light">
+			<div>
+				<div id="centralImage" class="row text-justify"
+					style="padding-left: 10%; padding-top: 2%;">
+					<div class="col-sm-7">
+						<h1>Nuestros Servicios:</h1>
+						Ofrecemos un servicio de información en la nube para propiedades,
+						la cual mpermite a los potenciales clientes tener acceso a datos
+						en tiempo real sobre el inmueble que no caberían dentro de los
+						clásicos carteles de venta o alquiler, así también la posibilidad
+						de una actualización de las cartillas de ventas y/o alquileres que
+						habitualmente se observan en las vidrieras de las inmobiliarias. <br>
+						Datos como cantidad de ambientes, metros cuadrados cubiertos,
+						metros cuadrados descubiertos, antiguedad, apto crédito o no, más
+						números de contacto, email, datos extra sobre las propiedades en
+						cuestión, comentarios profesionales, recomendaciones sobre el tipo
+						de uso de la misma, fotos y mucho más. <br> <br>
+						<li>La cantidad y calidad de información es administrada por
+							los usuarios, brindando la posibilidad de subir mucha información
+							extra, útil para cerrar los negocios con más certeza.
+						<li>Los únicos datos obligatorios en nuestro sistema son el
+							nombre de referencia y la dirección del inmueble, el resto puede
+							ser administrado a comodidad del usuario.
+						<li>Los códigos QR son generados en 5 distintos tamaños, de
+							menor a mayor tamaño, para que sean utilizados en libros de
+							exposición, vidrieras con plantillas de diversos tamaños y hasta
+							en carteles, facilitando el acceso a la información a transeuntes
+							en cualquier horario del dia.
+					</div>
+					<div class="col-sm-5">
+						<img alt="Resumen QR-Propiedades" src="src/img/cloud-home-qr.png"
+							class="img-fluid"
+							style="float: left; padding-left: 20px; padding-top: 2%;">
+					</div>
+				</div>
+
+
+				<br>
+				<div class="row text-justify">
+					<div id="explanation" class="row text-justify">
+						<div style="padding-left: 10%;" class="col-sm-6">
+							<h2>El uso es muy simple:</h2>
+							<ol>
+								<li>Desde una pc o celular se loguea en nuestra web.</li>
+								<li>Se llena el formulario y una vez completado se le da
+									ok para subirlo a la nube.</li>
+								<li>El servidor devolverá 5 links con 5 tamaños distintos
+									de código QR para que usted elija el que más le convenga.</li>
+								Dependiendo del plan en el que esté suscripto podrá generar una
+								cantidad determinada de códigos QR.
+								<li>Puede administrar la cantidad de datos almacenados en
+									la Base de datos, agregando, modificando o borrando registros,
+									ningún plan que ofrecemos se basa en la cantidad de información
+									por cada propiedad asignada a un Qr, sino en la cantidad total
+									de QR disponibles por plan. </li>
+							</ol>
+						</div>
+
+						<div class="col-sm-6" style="padding-left:5%;">
+							<h2>Procesos gráficos</h2>
+							<hr>
+							<h4>Para generar QR:</h4>
+							<h2><i class="fas fa-laptop"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="far fa-id-card"></i> <i class="fas fa-long-arrow-alt-right"> </i> <i class="fas fa-upload"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-cloud"></i>     <i class="fas fa-long-arrow-alt-right"> </i> <i class="fas fa-cloud-download-alt"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-qrcode"></i></h2>
+							<hr>
+							<h4>Para consumir el QR</h4>
+							<h2><i class="fas fa-mobile-alt"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-qrcode"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-list"></i></h2>
+						</div>
+
+					</div>
+				</div>
+					<hr>
+					
+					<div class="row">
+						<div class="col-sm-12" style="text-align:center;">
+							<h3>En resumen, para definir nuestro servicio podemos hacer la unión de tres palabras, "nube", "casa" y "qr".</h3>
+						</div>
+					</div>
+					
+					<div id="process" class="row" padding-top: 2%;">
+						<div class="col-sm-12" style="text-align:center;">
+							<h1>
+								<i class="fas fa-cloud"></i> + <i class="fas fa-home"> </i> + <i class="fas fa-qrcode"></i> = Magia
+							</h1>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+					
+				</div>
+			</div>
+
+			<!-- Start Footer -->
+			<div class="footer">
+				<footer class="footer-info">
+					Todos los derechos reservados para
+					<kbd>QR-Propiedades.com</kbd>
+					| Diseñado y mantenido por
+					<kbd>
+						<a href="http://molokotech.com">Molokotech Solutions</a>
+					</kbd>
+					.
+				</footer>
+			</div>
+</body>
+</html>
