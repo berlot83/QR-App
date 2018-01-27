@@ -50,8 +50,20 @@
 							<a class="nav-link" href="mission.html">Misión</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link" href="#">Contacto</a>
+							<a id="contact" class="nav-link" href="#">Contacto</a>
 						</h4></li>
+					<script type="text/javascript">
+					$( "#contact").click(function() {
+						$.alert({
+							type:'green',
+						    title: '<h2>  <i class="fas fa fa-cog fa-spin"></i>Contacto</h2>',
+						    content: '<br><div class="text-justify">Puede comunicarse con nosotros en alguna de las siguientes formas.<br><br> <h4><i class="fas fa-phone-volume"></i> 4602-0378</h4> <h4><i class="fas fa-at"></i> ventas@qrpropiedades.com</h4><br><button type="button" class="btn btn-success btn-lg" style="text-align:center;" onclick="contactForm()">Completar formulario</button></div>',
+						    confirm: function(){
+						        $.alert('Confirmed!'); // shorthand.
+						    }
+						});
+					});
+					</script>
 				</ul>
 			</div>
 		</div>
@@ -116,8 +128,8 @@
 							<h2>El uso es muy simple:</h2>
 							<ol>
 								<li>Desde una pc o celular se loguea en nuestra web.</li>
-								<li>Se llena el formulario y una vez completado se le da
-									ok para subirlo a la nube.</li>
+								<li>Se llena el formulario y una vez completado se le da ok
+									para subirlo a la nube.</li>
 								<li>El servidor devolverá 5 links con 5 tamaños distintos
 									de código QR para que usted elija el que más le convenga.</li>
 								Dependiendo del plan en el que esté suscripto podrá generar una
@@ -126,55 +138,170 @@
 									la Base de datos, agregando, modificando o borrando registros,
 									ningún plan que ofrecemos se basa en la cantidad de información
 									por cada propiedad asignada a un Qr, sino en la cantidad total
-									de QR disponibles por plan. </li>
+									de QR disponibles por plan.</li>
 							</ol>
 						</div>
 
-						<div class="col-sm-6" style="padding-left:5%;">
-							<h2>Procesos gráficos</h2>
+						<div class="col-sm-6" style="padding-left: 5%;">
+							<h2>Visto graficamente</h2>
 							<hr>
 							<h4>Para generar QR:</h4>
-							<h2><i class="fas fa-laptop"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="far fa-id-card"></i> <i class="fas fa-long-arrow-alt-right"> </i> <i class="fas fa-upload"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-cloud"></i>     <i class="fas fa-long-arrow-alt-right"> </i> <i class="fas fa-cloud-download-alt"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-qrcode"></i></h2>
+							<h2 style="color: lightblue;">
+								<i class="fas fa-laptop"></i> <i
+									class="fas fa-long-arrow-alt-right"></i> <i
+									class="far fa-id-card"></i> <i
+									class="fas fa-long-arrow-alt-right"> </i> <i
+									class="fas fa-upload"></i> <i
+									class="fas fa-long-arrow-alt-right"></i> <i
+									class="fas fa-cloud"></i> <i
+									class="fas fa-long-arrow-alt-right"> </i> <i
+									class="fas fa-cloud-download-alt"></i> <i
+									class="fas fa-long-arrow-alt-right"></i> <i
+									class="fas fa-qrcode"></i>
+							</h2>
+							
 							<hr>
 							<h4>Para consumir el QR</h4>
-							<h2><i class="fas fa-mobile-alt"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-qrcode"></i> <i class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-list"></i></h2>
+							<h2 style="color: lightblue;">
+								<i class="fas fa-mobile-alt"></i> <i
+									class="fas fa-long-arrow-alt-right"></i> <i
+									class="fas fa-qrcode"></i> <i
+									class="fas fa-long-arrow-alt-right"></i> <i class="fas fa-list"></i>
+							</h2>
 						</div>
 
 					</div>
 				</div>
-					<hr>
-					
-					<div class="row">
-						<div class="col-sm-12" style="text-align:center;">
-							<h3>En resumen, para definir nuestro servicio podemos hacer la unión de tres palabras, "nube", "casa" y "qr".</h3>
-						</div>
+				<hr>
+
+				<div class="row text-justify" style="padding-left: 10%;">
+					<div class="col-sm-4">
+						<h2>QR Propiedades individuales.</h2>
+						Este servicio permite a los inmobiliarios contar con códigos QR de
+						diversos tamaños para que puedan ser utilizados en diversas
+						situaciones, desde folletos, plantillas de vidrieras, cuadernos y
+						hasta carteles de venta de inmuebles para que los transeuntes
+						accedan desde afuera de la propiedad, el acceso a la información
+						permite que la negociación al momento de la venta o alquiler sea
+						más simple ahorrando palabras y brindando sólo la información que
+						al vendedor le parezca pertinente. Así como también es un avance
+						tecnológico para actualizarse a los tiempos de hoy.
+						<br>
+						<br>
+						<br>
+						<button type="button" class="btn btn-primary btn-lg" style="text-align:center;" onclick="pricing()">Comenzar ahora <i class="fas fa-qrcode"></i></button>
+						<script type="text/javascript">
+						function pricing(){
+							window.location.href="pricing.html";
+						}
+						</script>
 					</div>
+
+					<div class="col-sm-4">
+						<h2>QR Complejos Habitacionales.</h2>
+						Este servicio permite a los grupos de inversión, constructoras y
+						otro tipo de inversión inmobiliaria que tengan proyectos en
+						proceso de construcción, la posibilidad de mostrar información
+						específica sobre las características de las propiedades en
+						construcción o a punto de terminar, contando con un código QR
+						único para todo el complejo, más grande que el proporcionado en el
+						servicio de propiedades individuales. El acceso al QR permitirá al
+						transeunte la posibilidad de ver datos detallados sobre cada uno
+						de los pisos, terraza, SUM, gimnasio, lavadero e imágenes de cada
+						uno de ellos.
+						<br><br>
+						<button id="habitationalComplex" type="button" class="btn btn-primary btn-lg" style="text-align:center;">Conectar</button>
+					<script type="text/javascript">
+					$( "#habitationalComplex").click(function() {
+						$.alert({
+							type:'blue',
+						    title: '<h2>  <i class="fas fa fa-cog fa-spin"></i>Complejos Habitacionales</h2>',
+						    content: '<br><div class="text-justify">Para contratar el servicio de QR a complejos habitacionales comunicarse con nosotros en alguna de las siguientes formas.<br><br> <h4><i class="fas fa-phone-volume"></i> 4602-0378</h4> <h4><i class="fas fa-at"></i> ventas@qrpropiedades.com</h4><br><button type="button" class="btn btn-success btn-lg" style="text-align:center;" onclick="contactForm()">Completar formulario</button></div>',
+						    confirm: function(){
+						        $.alert('Confirmed!'); // shorthand.
+						    }
+						});
+					});
 					
-					<div id="process" class="row" padding-top: 2%;">
-						<div class="col-sm-12" style="text-align:center;">
-							<h1>
-								<i class="fas fa-cloud"></i> + <i class="fas fa-home"> </i> + <i class="fas fa-qrcode"></i> = Magia
-							</h1>
-						</div>
-						<br>
-						<br>
+					
+					</script>
+					</div>
+
+					<div class="col-sm-4">
+						<h2>Software especializado.</h2>
+						Realizamos tareas de desarrollo de software, tanto de "Rich Apps"
+						como de "Cloud Apps" a medida para diversas empresas que quieren
+						actualizar sus sistemas o aquellos que necesiten una mejora o
+						personalización a los servicios previamente nombrados. Para este
+						servicio es necesario comunicarse directamente con nuestras
+						oficinas y concretar una reunión para pautar formas de pago,
+						garantías y tiempos de desarrollo.
+						<br><br><br><br><br>
+						<button id="especializedsoftware" type="button" class="btn btn-primary btn-lg" style="text-align:center;">Conectar</button>
+					<script type="text/javascript">
+					
+						$( "#especializedsoftware" ).click(function() {
+							$.alert({
+								type:'blue',
+							    title: '<h2>  <i class="fas fa fa-cog fa-spin"></i>  Desarrollo de software</h2>',
+							    content: '<br><div class="text-justify">Para realizar un presupuesto sobre el desarrollo de software especializado comunicarse mediante los siguientes medios para coordinar una reunión:<br><br> <h4><i class="fas fa-phone-volume"></i> 4602-0378</h4> <h4><i class="fas fa-at"></i> ventas@qrpropiedades.com</h4><br><button type="button" class="btn btn-success btn-lg" style="text-align:center;" onclick="contactForm()">Completar formulario</button></div>',
+							    confirm: function(){
+							        $.alert('Confirmed!'); // shorthand.
+							    }
+							});
+						});
+					
+						function contactForm(){
+							$.dialog({
+							    title: '<h2>Formulario de contacto:</h2>',
+							    content: '<div id="contactForm"><form><div class="form-group"><label for="name">Nombre:</label> <input type="text"class="form-control" id="name"></div><div class="form-group"><label for="lastname">Apellido:</label> <input type="text"class="form-control" id="lastname"></div><div class="form-group"><label for="email">E-mail:</label> <input type="email"class="form-control" id="email"></div><div class="form-group"><label for="telephone">Teléfono:</label> <input type="number"class="form-control" id="telephone"></div><div class="form-group"><label for="comment">Comentarios:</label><textarea class="form-control" rows="5" id="comment">Comente aquí el tipo de software que está precisando.</textarea></div><div><button type="submit" class="btn btn-primary btn-lg">Enviar fomulario</button></div></form></div>',
+							});
+						}
+						
+					</script>
+					</div>
+
+				</div>
+				<br>
+				<br>
+				<hr>
+
+				<div class="row">
+					<div class="col-sm-12" style="text-align: center; padding-left:5%;">
+						<h3>En resumen, para definir nuestro principal servicio podemos decir que es, <kbd>"nube"</kbd>, <kbd>"inmueble"</kbd> y <kbd>"qr"</kbd>.</h3>
 					</div>
 				</div>
-					
+				<br>
+
+				<div id="process" class="row"padding-top: 2%;">
+					<div class="col-sm-12" style="text-align: center;">
+						<h1>
+							<i class="fas fa-cloud"></i> + <i class="fas fa-home"> </i> + <i
+								class="fas fa-qrcode"></i> = Magia
+						</h1>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 				</div>
 			</div>
 
-			<!-- Start Footer -->
-			<div class="footer">
-				<footer class="footer-info">
-					Todos los derechos reservados para
-					<kbd>QR-Propiedades.com</kbd>
-					| Diseñado y mantenido por
-					<kbd>
-						<a href="http://molokotech.com">Molokotech Solutions</a>
-					</kbd>
-					.
-				</footer>
-			</div>
+		</div>
+	</div>
+
+	<!-- Start Footer -->
+	<div class="footer">
+		<footer class="footer-info">
+			Todos los derechos reservados para
+			<kbd>QR-Propiedades.com</kbd>
+			| Diseñado y mantenido por
+			<kbd>
+				<a href="http://molokotech.com">Molokotech Solutions</a>
+			</kbd>
+			.
+		</footer>
+	</div>
 </body>
 </html>

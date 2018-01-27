@@ -3,7 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <!-- Start Libraries -->
-<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald"
+	rel="stylesheet">
 <link rel="stylesheet" href="src/css/indexStylesheet.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
@@ -17,9 +18,10 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 
-	
+
 <!-- Icons -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 
 
 <!-- End Libraries -->
@@ -28,12 +30,13 @@
 <body>
 
 
-<!-- Start nav bar -->
+	<!-- Start nav bar -->
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<!-- Links -->
-				<ul class="navbar-nav" style="font-family: 'Francois One', sans-serif;">
+				<ul class="navbar-nav"
+					style="font-family: 'Francois One', sans-serif;">
 					<li class="nav-item"><h4>
 							<a class="nav-link" href="index.html">Home</a>
 						</h4></li>
@@ -44,11 +47,28 @@
 							<a class="nav-link" href="pricing.html">Precios</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link"  href="mission.html">Misión</a>
+							<a class="nav-link" href="mission.html">Misión</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link" href="#">Contacto</a>
+							<a id="contact" class="nav-link" href="#">Contacto</a>
 						</h4></li>
+								<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+			
+			function contactForm(){
+				$.dialog({
+				    title: '<h2>Formulario de contacto:</h2>',
+				    content: '<div id="contactForm"><form><div class="form-group"><label for="name">Nombre:</label> <input type="text"class="form-control" id="name"></div><div class="form-group"><label for="lastname">Apellido:</label> <input type="text"class="form-control" id="lastname"></div><div class="form-group"><label for="email">E-mail:</label> <input type="email"class="form-control" id="email"></div><div class="form-group"><label for="telephone">Teléfono:</label> <input type="number"class="form-control" id="telephone"></div><div class="form-group"><label for="comment">Comentarios:</label><textarea class="form-control" rows="5" id="comment">Comente aquí el tipo de software que está precisando.</textarea></div><div><button type="submit" class="btn btn-primary btn-lg">Enviar fomulario</button></div></form></div>',
+				});
+			}
+		</script>
+					
 				</ul>
 			</div>
 		</div>
@@ -67,28 +87,48 @@
 	<!-- End nav bar -->
 
 
-<div id="content">
-<div id="about">
-<form action="">
+	<div id="content">
+		<div id="contactForm">
+		<h2>Formulario de contacto:</h2>
+			<form>
+				<div class="form-group">
+					<label for="name">Nombre:</label> <input type="text"
+						class="form-control" id="name">
+				</div>
+				<div class="form-group">
+					<label for="lastname">Apellido:</label> <input type="text"
+						class="form-control" id="lastname">
+				</div>
+				<div class="form-group">
+					<label for="email">E-mail:</label> <input type="email"
+						class="form-control" id="email">
+				</div>
+				<div class="form-group">
+					<label for="telephone">Teléfono:</label> <input type="number"
+						class="form-control" id="telephone">
+				</div>
+				<div class="form-group">
+						<label for="comment">Comentarios:</label>
+						<textarea class="form-control" rows="5" id="comment">Comente aquí el tipo de software que está precisando.</textarea>
+				</div>
+				<div><button type="submit" class="btn btn-primary btn-lg"></button></div>
+			</form>
+		</div>
 
 
-</form>
-</div>
+	</div>
 
-
-</div>
-
-			<!-- Start Footer -->
-			<div class="footer">
-				<footer class="footer-info">
-					Todos los derechos reservados para
-					<kbd>QR-Propiedades.com</kbd>
-					| Diseñado y mantenido por
-					<kbd>
-						<a href="http://molokotech.com">Molokotech Solutions</a>
-					</kbd>
-					.
-				</footer>
-			</div>
+	<!-- Start Footer -->
+	<div class="footer">
+		<footer class="footer-info">
+			Todos los derechos reservados para
+			<kbd>QR-Propiedades.com</kbd>
+			| Diseñado y mantenido por
+			<kbd>
+				<a href="http://molokotech.com">Molokotech Solutions</a>
+			</kbd>
+			.
+		</footer>
+	</div>
 </body>
 </html>
