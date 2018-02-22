@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Dev AAB modified 22/02/2018 -->
 <meta charset="ISO-8859-1">
 <!-- Start Libraries -->
 <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald" rel="stylesheet">
@@ -71,6 +72,35 @@
 		-moz-box-shadow: 10px 10px 20px 5px rgba(133,133,133,1);
 		box-shadow: 10px 10px 20px 5px rgba(133,133,133,1);
       }
+      #containerDiv{
+	      background-color:rgba(255,255,255, 0.3);
+	      margin-left: 20px;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
+	      padding-left: 20px;
+	      padding-right: 20px;
+	      padding-bottom: 20px;
+
+      }
+      #containerCustomLink{
+      	  background-color:rgba(255,255,255, 0.3);
+	      margin-left: 20px;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
+	      padding-left: 20px;
+	      padding-right: 20px;
+	      padding-bottom: 20px;
+
+      }
+      #containerSelectorDestiny{
+	      background-color:rgba(255,255,255, 0.3);
+	      margin-left: 20px;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
+	      padding-left: 20px;
+	      padding-right: 20px;
+	      padding-bottom: 20px;
+      }
     </style>
   <!-- Google maps css-->
 
@@ -98,6 +128,8 @@
 							<a class="nav-link" href="help.html">Ayuda</a>
 						</h4></li>
 					
+					
+				</ul>
 		<script type="text/javascript">
 			function contactForm(){
 				$.dialog({
@@ -106,8 +138,6 @@
 				});
 			}
 		</script>
-					
-				</ul>
 			</div>
 		</div>
 		<button id="logoutButton" type="button" class="btn btn-warning btn-lg" >Salir</button>
@@ -115,7 +145,7 @@
 			$("#logoutButton").click(function() {
 				$.confirm({
 					type : "blue",
-					title : 'Logout',
+					title : 'Salir',
 					content : "Realmente desea salir?",
 			        buttons:{
 			        confirm: function () {
@@ -136,16 +166,56 @@
 	<!-- End nav bar -->
 
 
-	<div id="content">
-
-							
+	<div id="content" class="bg-warning">
+	<div id="destinyQrDiv">
+	
 	<!-- Pruebas de push a remoto por AAB -->
 
-	<div class="container">
-		<div class="row">
+	<div class="container" id="containerSelectorDestiny">
+	<br>
+	<h3>El código QR debe contener:</h3>
+	<hr>
+		<div class="row" style="padding:20px;" >
+		<div class="col-xs-2">
+			<label for="selectDestiny"></label>
+			<select id="selectDestiny" class="form-control" onchange="" >
+				<option selected="selected" disabled>Seleccione una acción.</option>
+				<option>La ruta directa a los datos de la propiedad provista por QR-prop.</option>
+				<option>La ruta a un link externo provisto por mi.</option>
+			</select>
+			<br>
+			<button type="button" class="btn btn-primary" onclick="helpYouChoose()" ><span>Ayudarme a elegir</span></button>
+			
+			<script>
+				function helpYouChoose(){
+					  $.alert({
+						  type: 'blue',
+						    title: 'Cuál elegir?',
+						    content: 'El código QR provée una ruta hacia un sitio determinado, nosotros damos la opción de que se cree el QR y puedan colocar la dirección que el cliente desee, por ejemplo la ruta de su inmobiliaria, o la ruta de un sitio externo que tenga todos los datos de la propiedad en cuestión, o la opción por defecto, que es <strong>la ruta hacia nuestra nube</strong>,  de cualquiera de las siguientes maneras se puede crear los QR con iguales beneficios.   ',
+						});
+				}
+			</script>
+			
+			</div>
+		</div>
+	</div>
+	
+	
+	<!--  -->
+	<!--  -->
+	
+	<div id="containerCustomLink" class="container">
+		<label id="labelCustomLink" ><strong>Ingrese la ruta del Código QR:</strong></label>
+		<input type="text" class="form-control" ></input>
+		<br>
+		<button type="submit" class="btn btn-primary" onclick="createQrNow()" >Crear QR <i class='fas fa-qrcode'></i></button>	
+	</div>
+	
 
-				<form action="#" th:action="@{/RealStateForm}"
-					th:object="${realStateForm}" method="GET">
+							
+		<div class="row-fluid" id="containerDiv">
+
+				<form role="form" action="#" method="GET">
 					
 					<div class="form-group">
 					<br>
@@ -163,7 +233,7 @@
 					<div class="row">
 						<div class="form-group col-md-2">
 							<label for="status">Estado comercial</label>
-							  <select class="form-control" id="gym">
+							  <select class="form-control" id="status">
 							    <option>Venta</option>
 							    <option>Alquiler</option>
 							    <option>Vendido</option>
@@ -215,8 +285,8 @@
 							</div>
 							
 							<div class="form-group col-md-2">
-							<label for="change">Precio</label>
-								<input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+							<label for="price">Precio</label>
+								<input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="price" />
 							</div>
 						</div>
 						
@@ -313,7 +383,7 @@
 					
 					</div id="mapContentDiv">
 							<div class="form-group col-md-6" style="height:300px; width:550px;  margin: 0 auto 0 auto;">
-								<div id="map"></div>
+								<div id="map" class="img-responsive"></div>
 							</div>
 					</div>
 						
