@@ -23,61 +23,12 @@
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 
+<!-- Json to PDF -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
 
 <!-- End Libraries -->
-
-
-<!-- Google maps -->
-
-<title>QR form</title>
-   <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
-
-      .label {
-        text-align: right;
-        font-weight: bold;
-        width: 100px;
-        color: #303030;
-      }
-      #address {
-        border: 1px solid #000090;
-        background-color: #f0f0ff;
-        width: 480px;
-        padding-right: 2px;
-      }
-      #address td {
-        font-size: 10pt;
-      }
-      .field {
-        width: 99%;
-      }
-      .slimField {
-        width: 80px;
-      }
-      .wideField {
-        width: 200px;
-      }
-      #locationField {
-        height: 20px;
-        margin-bottom: 2px;
-      }
-      #map {
-        height: 100%;
-        width: 100%;
-      }
-    </style>
-  <!-- Google maps css-->
-
+<title>Json to PDF</title>
 </head>
 <body>
 
@@ -93,18 +44,18 @@
 							<a class="nav-link" href="index.html">Home</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link" href="#">Administración</a>
+							<a class="nav-link" href="#">Servicios</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link" href="pricing.html">Descargas</a>
+							<a class="nav-link" href="pricing.html">Precios</a>
 						</h4></li>
 					<li class="nav-item"><h4>
-							<a class="nav-link" href="mission.html">Ayuda</a>
+							<a class="nav-link" href="mission.html">Misión</a>
 						</h4></li>
 					<li class="nav-item"><h4>
 							<a id="contact" class="nav-link" href="#">Contacto</a>
 						</h4></li>
-								<script type="text/javascript">
+					<script type="text/javascript">
 			$("#loginButton").click(function() {
 				$.dialog({
 					type : "blue",
@@ -120,10 +71,10 @@
 				});
 			}
 		</script>
-						<li class="nav-item"><h4>
+					<li class="nav-item"><h4>
 							<a class="nav-link" href="downloads.html">Descargas</a>
 						</h4></li>
-					
+
 				</ul>
 			</div>
 		</div>
@@ -144,6 +95,70 @@
 
 	<div id="content">
 
+		<div>
+			<input type="text" id="reference" /><br>
+			<input type="number" id="m2Covered" /><br>
+			<input type="number" id="m2Uncovered" /><br>
+			<input type="text"id="price" /><br>
+			<input type="text" id="status" /><br>
+			
+			<button onclick="ajaxSendForm()">enviar</button>
+			
+			<script type="text/javascript">
+						function ajaxSendForm(){
+						    var xmlhttp;
+						    var reference = document.getElementById("reference");
+						    var m2Covered = document.getElementById("m2Covered");
+						    var m2Uncovered = document.getElementById("m2Uncovered");
+						    var price = document.getElementById("price");
+						    var status = document.getElementById("status");
+
+						    
+						    var url = "/RealStateHomeWeb/rest/fromJson/toPDF";
+						    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+						    xmlhttp = new XMLHttpRequest();
+						    xmlhttp.onreadystatechange = function(){
+						        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						            
+						           	alert(xmlhttp.responseText);
+						           	
+						    		// Default export is a4 paper, portrait, using milimeters for units
+						    		var doc = new jsPDF()
+									var parseResponse = JSON.parse(xmlhttp.responseText);
+						    		
+						    		for(var i=0; i < xmlhttp.responseText.length; i++){
+						    			var parseReference= document.createTextNode(parseResponse[i].reference);
+						    			doc.text(parseReference, 10, 10)
+						    		}
+						    	
+						    		doc.save('a4.pdf')
+						    	
+						        }
+						    }
+						    xmlhttp.open("post", url, true);
+						    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						    xmlhttp.send("reference="+reference.value+"&m2Covered="+m2Covered.value+"&m2Uncovered="+m2Uncovered.value+"&price="+price.value+"&status="+status.value);
+						}
+						</script>
+
+		</div>
+
+
+
+
+		<button class="btn btn-lg" onclick="toPDF()">to pdf</button>
+
+		<script type="text/javascript">
+	function toPDF(){
+		// Default export is a4 paper, portrait, using milimeters for units
+		var doc = new jsPDF()
+
+		var hola = "Hola mundo"
+		
+		doc.text("Esta oración dice: " + hola , 10, 10)
+		doc.save('a4.pdf')
+	}
+	</script>
 
 
 	</div>
