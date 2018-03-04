@@ -1,0 +1,18 @@
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static('views/pages/src/css'))
+  .use(express.static('views/pages/src/img'))
+  .use(express.static('views/pages/src/js'))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/index', (req, res) => res.render('pages/index'))
+  .get('/services', (req, res) => res.render('pages/services'))
+  .get('/pricing', (req, res) => res.render('pages/pricing'))
+  .get('/mission', (req, res) => res.render('pages/mission'))
+  .get('/downloads', (req, res) => res.render('pages/downloads'))
+  .get('/formulario', (req, res) => res.render('pages/formulario'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))

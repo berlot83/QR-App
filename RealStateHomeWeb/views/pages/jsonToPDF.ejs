@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Start Libraries -->
+<link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald"
+	rel="stylesheet">
+<link rel="stylesheet" href="src/css/indexStylesheet.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+	<script type="text/javascript" src="src/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="src/js/jquery-confirm.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+
+<!-- Icons -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+
+<!-- Json to PDF -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+
+<!-- End Libraries -->
+<title>Json to PDF</title>
+</head>
+<body>
+
+
+	<!-- Start nav bar -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- Links -->
+				<ul class="navbar-nav"
+					style="font-family: 'Francois One', sans-serif;">
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="index.html">Home</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="#">Servicios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="pricing.html">Precios</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="mission.html">Misión</a>
+						</h4></li>
+					<li class="nav-item"><h4>
+							<a id="contact" class="nav-link" href="#">Contacto</a>
+						</h4></li>
+					<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+			
+			function contactForm(){
+				$.dialog({
+				    title: '<h2>Formulario de contacto:</h2>',
+				    content: '<div id="contactForm"><form><div class="form-group"><label for="name">Nombre:</label> <input type="text"class="form-control" id="name"></div><div class="form-group"><label for="lastname">Apellido:</label> <input type="text"class="form-control" id="lastname"></div><div class="form-group"><label for="email">E-mail:</label> <input type="email"class="form-control" id="email"></div><div class="form-group"><label for="telephone">Teléfono:</label> <input type="number"class="form-control" id="telephone"></div><div class="form-group"><label for="comment">Comentarios:</label><textarea class="form-control" rows="5" id="comment">Comente aquí el tipo de software que está precisando.</textarea></div><div><button type="submit" class="btn btn-primary btn-lg">Enviar fomulario</button></div></form></div>',
+				});
+			}
+		</script>
+					<li class="nav-item"><h4>
+							<a class="nav-link" href="downloads.html">Descargas</a>
+						</h4></li>
+
+				</ul>
+			</div>
+		</div>
+		<button id="loginButton" type="button" class="btn btn-warning btn-lg"
+			onclick="login()">Login</button>
+		<script type="text/javascript">
+			$("#loginButton").click(function() {
+				$.dialog({
+					type : "blue",
+					title : 'Login',
+					content : "<form action='/DireccionCosmica'><div class='form-group'><label for='email'>Email:</label><input type='email' class='form-control' id='email'></div><div class='form-group'><label for='pwd'>Password:</label><input type='password' class='form-control' id='pwd'></div><div class='checkbox'><label><input type='checkbox'> Recordarme</label></div><button type='submit' class='btn btn-default'>Enviar</button></form>",
+				});
+			});
+		</script>
+	</nav>
+	<!-- End nav bar -->
+
+
+	<div id="content">
+
+		<div>
+			<input type="text" id="reference" /><br>
+			<input type="number" id="m2Covered" /><br>
+			<input type="number" id="m2Uncovered" /><br>
+			<input type="text"id="price" /><br>
+			<input type="text" id="status" /><br>
+			
+			<button onclick="ajaxSendForm()">enviar</button>
+			
+			<script type="text/javascript">
+						function ajaxSendForm(){
+						    var xmlhttp;
+						    var reference = document.getElementById("reference");
+						    var m2Covered = document.getElementById("m2Covered");
+						    var m2Uncovered = document.getElementById("m2Uncovered");
+						    var price = document.getElementById("price");
+						    var status = document.getElementById("status");
+
+						    
+						    var url = "/RealStateHomeWeb/rest/fromJson/toPDF";
+						    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+						    xmlhttp = new XMLHttpRequest();
+						    xmlhttp.onreadystatechange = function(){
+						        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						            
+						           	alert(xmlhttp.responseText);
+						           	
+						    		// Default export is a4 paper, portrait, using milimeters for units
+						    		var doc = new jsPDF()
+									var parseResponse = JSON.parse(xmlhttp.responseText);
+						    		
+						    		for(var i=0; i < xmlhttp.responseText.length; i++){
+						    			var parseReference= document.createTextNode(parseResponse[i].reference);
+						    			doc.text(parseReference, 10, 10)
+						    		}
+						    	
+						    		doc.save('a4.pdf')
+						    	
+						        }
+						    }
+						    xmlhttp.open("post", url, true);
+						    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						    xmlhttp.send("reference="+reference.value+"&m2Covered="+m2Covered.value+"&m2Uncovered="+m2Uncovered.value+"&price="+price.value+"&status="+status.value);
+						}
+						</script>
+
+		</div>
+
+
+
+
+		<button class="btn btn-lg" onclick="toPDF()">to pdf</button>
+
+		<script type="text/javascript">
+	function toPDF(){
+		// Default export is a4 paper, portrait, using milimeters for units
+		var doc = new jsPDF()
+
+		var hola = "Hola mundo"
+		
+		doc.text("Esta oración dice: " + hola , 10, 10)
+		doc.save('a4.pdf')
+	}
+	</script>
+
+
+	</div>
+
+	<!-- Start Footer -->
+	<div class="footer">
+		<footer class="footer-info">
+			Todos los derechos reservados para
+			<kbd>QR-Propiedades.com</kbd>
+			| Diseñado y mantenido por
+			<kbd>
+				<a href="http://molokotech.com">Molokotech Solutions</a>
+			</kbd>
+			.
+		</footer>
+	</div>
+</body>
+</html>
